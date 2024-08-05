@@ -68,6 +68,9 @@
                                                     @endif
                                                 </td>
                                                 <td>
+                                                    <a href="{{ route('orders.print', $order->id) }}" class="btn btn-sm btn-secondary">
+                                                        Print
+                                                    </a>
                                                     <a href="{{ route('orders.show', $order->id) }}"
                                                         class="btn btn-sm btn-info">Show</a>
                                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"

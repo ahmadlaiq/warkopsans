@@ -11,8 +11,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f8f9fa;
+            padding: 20px;
         }
         .spinner-border {
             width: 3rem;
@@ -21,6 +22,14 @@
         .message {
             margin-top: 20px;
             text-align: center;
+        }
+        .order-info {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .qris-logo {
+            max-width: 100px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -37,6 +46,14 @@
             </h3>
             <p>Waiter akan menuju ke meja anda</p>
         </div>
+        <div class="order-info">
+            <h4>Informasi Pesanan:</h4>
+            <p><strong>Nomor Meja:</strong> <span id="tableNumber">{{ $order->meja->nomor }}</span></p>
+            <p><strong>Nomor Invoice:</strong> <span id="invoiceNumber">{{ $order->invoice_number }}</span></p>
+            <p><strong>Nama Pelanggan:</strong> <span id="customerName">{{ $order->customer_name }}</span></p>
+            <p><strong>Total Pembayaran:</strong> <span id="totalPayment">{{ $order->total_amount }}</span></p>
+        </div>
+        <img src="https://assets.kompasiana.com/items/album/2020/06/05/qris-baznas-5eda34a3d541df43ac060963.png?t=o&v=770" alt="QRIS Logo" class="qris-logo">
     </div>
 </div>
 

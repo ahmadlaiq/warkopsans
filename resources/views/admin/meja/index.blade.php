@@ -43,7 +43,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>QR CODE</th>
+                                            {{-- <th>QR CODE</th> --}}
                                             <th>NOMOR MEJA</th>
                                             <th>STATUS</th>
                                             <th>CREATED AT</th>
@@ -55,9 +55,9 @@
                                         @forelse ($mejas as $meja)
                                             <tr>
                                                 <td class="text-bold-500">{{ $loop->iteration }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     <div id="qrcode-{{ $meja->id }}"></div>
-                                                </td>
+                                                </td> --}}
                                                 <td class="text-center">{{ $meja->nomor }}</td>
                                                 <td>
                                                     @if ($meja->status == 'available')
@@ -91,10 +91,11 @@
                                                                         action="{{ route('mejas.update', $meja->id) }}">
                                                                         @csrf
                                                                         @method('PUT')
-                                                                        <div class="mb-3">
+                                                                        <input type="hidden" name="qr_code" value="p">
+                                                                        {{-- <div class="mb-3">
                                                                             <label for="name" class="form-label">QR Code</label>
                                                                             <input type="text" class="form-control" id="name" name="qr_code" value="{{ $meja->qr_code }}" required>
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <div class="mb-3">
                                                                             <label for="nomor" class="form-label">Nomor Meja</label>
                                                                             <input type="text" class="form-control" id="nomor" name="nomor" value="{{ $meja->nomor }}" required>
@@ -151,10 +152,11 @@
             <div class="modal-body">
                 <form id="addDataForm" method="POST" action="{{ route('mejas.store') }}">
                     @csrf
-                    <div class="mb-3">
+                    <input type="hidden" name="qr_code" value="p">
+                    {{-- <div class="mb-3">
                         <label for="name" class="form-label">QR Code</label>
                         <input type="text" class="form-control" id="name" name="qr_code" required>
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="nomor" class="form-label">Nomor Meja</label>
                         <input type="text" class="form-control" id="nomor" name="nomor" required>
